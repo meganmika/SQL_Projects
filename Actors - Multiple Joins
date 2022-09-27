@@ -1,0 +1,40 @@
+/* Creating three tables - actors, movies, and significant others */
+CREATE table people (id INTEGER PRIMARY KEY, name TEXT, age INTEGER);
+
+INSERT INTO people VALUES (1, "Katie Holmes", 40);
+INSERT INTO people VALUES (2, "Tom Cruise", 50);
+INSERT INTO people VALUES (3, "Sarah Michelle Gellar", 45);
+INSERT INTO people VALUES (4, "Freddie Prinze Jr", 45);
+INSERT INTO people VALUES (5, "Jennifer Aniston", 50);
+INSERT INTO people VALUES (6, "Brad Pitt", 50);
+
+CREATE table movies (person_id INTEGER, category TEXT, movie TEXT);
+
+INSERT INTO movies VALUES (1, "Rom Com", "Dawson's Creek");
+INSERT INTO movies VALUES (2, "Action", "Top Gun");
+INSERT INTO movies VALUES (3, "Action", "Buffy the Vampire Slayer");
+INSERT INTO movies VALUES (4, "Comedy", "Can't Hardly Wait");
+INSERT INTO movies VALUES (5, "Comedy", "Horrible Bosses");
+INSERT INTO movies VALUES (6, "Action", "Ocean's 11");
+
+CREATE table SO (person_id INTEGER, so_id INTEGER);
+
+INSERT INTO SO VALUES (1 , 2);
+INSERT INTO SO VALUES (3, 4);
+INSERT INTO SO VALUES (5, 6);
+
+
+/* Return movies with the corresponding actor using a single join */
+SELECT people.name, movies.movie FROM people
+    JOIN movies 
+    ON people.id = movies.person_id
+
+
+/* Return actor pairs by using multiple joins and aliases */
+SELECT a.name, b.name 
+    FROM SO
+    JOIN people a
+    ON a.id = so.person_id
+    JOIN people b
+    ON b.id = so.so_id;
+        
