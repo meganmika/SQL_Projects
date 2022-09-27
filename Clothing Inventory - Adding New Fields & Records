@@ -1,0 +1,30 @@
+/* Create table */
+CREATE TABLE clothes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    design TEXT);
+    
+INSERT INTO clothes (type, design)
+    VALUES ("dress", "pink polka dots");
+INSERT INTO clothes (type, design)
+    VALUES ("pants", "rainbow tie-dye");
+INSERT INTO clothes (type, design)
+    VALUES ("blazer", "black sequin");
+
+
+/* Add a new field */
+ALTER table clothes ADD price INTEGER;
+
+
+/* Update records to add prices in new field */
+UPDATE clothes SET price = 10 WHERE id=1;
+UPDATE clothes SET price = 20 WHERE id=2;
+UPDATE clothes SET price = 30 WHERE id=3;    
+    
+
+/* Add a new record including the new field */
+INSERT INTO clothes (type, design, price) VALUES ("shorts", "denim", 40);
+
+
+/* View resultant table */
+SELECT * FROM clothes;
