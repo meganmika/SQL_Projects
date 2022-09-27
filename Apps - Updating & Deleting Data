@@ -1,0 +1,19 @@
+/* Create table */
+CREATE table games (id INTEGER PRIMARY KEY, name TEXT, level INTEGER, score INTEGER);
+
+INSERT INTO games (name, level, score) VALUES ("Mario Kart", 3, 300);
+INSERT INTO games (name, level, score) VALUES ("Golden Eye", 2, 400);
+INSERT INTO games (name, level, score) VALUES ("Pokemon", 5, 250);
+INSERT INTO games (name, level, score) VALUES ("Zelda", 4, 1000);
+
+
+/* Updating a record */
+UPDATE games SET level=6 WHERE id=4;
+
+
+/* Deleting a record */
+DELETE FROM games WHERE id=3;
+
+
+/* View resultant table */
+SELECT * FROM games;
